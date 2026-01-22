@@ -35,12 +35,12 @@ async function signIn() {
 
     <button
       data-testid="login-view-signin"
-      @click="signIn"
       :disabled="loading"
       class="border-none py-3 px-6 rounded cursor-pointer text-base font-bold transition-colors duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
       style="background-color: var(--color-bg2); color: var(--color-fg0)"
       onmouseover="this.style.backgroundColor = 'var(--color-bg3)'"
       onmouseout="this.style.backgroundColor = 'var(--color-bg2)'"
+      @click="signIn"
     >
       {{ loading ? 'Signing in...' : 'Sign in with GitHub' }}
     </button>

@@ -33,7 +33,9 @@
           <Icon name="ChevronDown" size="sm" />
         </button>
       </template>
-      <DropdownItem icon="Launch" @click="goToDashboard">Dashboard</DropdownItem>
+      <DropdownItem icon="Launch" @click="goToDashboard"
+        >Dashboard</DropdownItem
+      >
       <DropdownItem icon="ArrowLeft" danger @click="signOut"
         >Log out</DropdownItem
       >
@@ -47,7 +49,7 @@ import { Dropdown, DropdownItem, Icon } from '@/components/ui';
 import { authClient } from '@/lib/auth-client';
 
 interface UserMenuProps {
-  user: {
+  user?: {
     name?: string | null;
     image?: string | null;
     email?: string | null;

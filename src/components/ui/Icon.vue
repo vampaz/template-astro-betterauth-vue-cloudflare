@@ -1,7 +1,7 @@
 <template>
   <component
-    v-if="iconComponent"
     :is="iconComponent"
+    v-if="iconComponent"
     :class="{ 'animate-spin': props.spin }"
     :style="iconStyle"
     aria-hidden="true"

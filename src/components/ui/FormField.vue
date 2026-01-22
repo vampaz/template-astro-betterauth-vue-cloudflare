@@ -21,8 +21,8 @@
       </p>
       <p
         v-if="props.error"
-        data-testid="form-field-error"
         :id="props.for ? `${props.for}-error` : undefined"
+        data-testid="form-field-error"
         class="mt-1 text-xs text-[var(--color-red)]"
         role="alert"
       >

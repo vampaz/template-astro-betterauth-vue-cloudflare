@@ -14,6 +14,7 @@ A template for building applications with Astro, Vue, and Cloudflare Workers, fe
 ## Getting Started
 
 1.  **Install dependencies:**
+
     ```sh
     npm install
     ```
@@ -34,9 +35,9 @@ A template for building applications with Astro, Vue, and Cloudflare Workers, fe
 ## Project Structure
 
 - `src/pages/`: File-based routing.
-    - `index.astro`: Public landing page.
-    - `dashboard/`: Protected private routes.
-    - `api/`: API endpoints.
+  - `index.astro`: Public landing page.
+  - `dashboard/`: Protected private routes.
+  - `api/`: API endpoints.
 - `src/db/`: Database schema and client.
 - `src/lib/auth.ts`: Authentication configuration.
 - `src/components/`: Vue and Astro components.

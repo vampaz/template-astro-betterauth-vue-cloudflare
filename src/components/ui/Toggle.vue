@@ -20,9 +20,9 @@
       <span :class="thumbClasses" />
     </span>
     <input
+      :id="props.id"
       type="checkbox"
       data-testid="toggle-input"
-      :id="props.id"
       :name="props.name"
       :checked="props.modelValue"
       :disabled="props.disabled"

@@ -1,8 +1,8 @@
 <template>
   <textarea
+    :id="props.id"
     ref="textareaRef"
     data-testid="textarea-root"
-    :id="props.id"
     :name="props.name"
     :value="props.modelValue"
     :placeholder="props.placeholder"

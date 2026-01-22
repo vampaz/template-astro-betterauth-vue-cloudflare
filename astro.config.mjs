@@ -21,10 +21,7 @@ export default defineConfig({
   },
   integrations: [vue()],
   vite: {
-    plugins: [
-      caddyTls({ domain: 'template.localhost' }),
-      tailwindcss(),
-    ],
+    plugins: [caddyTls({ domain: 'template.localhost' }), tailwindcss()],
     resolve: {
       alias: {
         '@': '/src',

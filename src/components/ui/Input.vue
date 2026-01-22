@@ -8,9 +8,9 @@
       {{ props.prefix }}
     </div>
     <input
+      :id="props.id"
       ref="inputRef"
       data-testid="input-input"
-      :id="props.id"
       :name="props.name"
       :type="props.type"
       :value="props.modelValue"

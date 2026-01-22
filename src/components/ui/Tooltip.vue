@@ -20,8 +20,8 @@
     >
       <div
         v-if="isVisible && !props.disabled"
-        ref="tooltipRef"
         id="tooltip"
+        ref="tooltipRef"
         data-testid="tooltip-content"
         role="tooltip"
         :class="[

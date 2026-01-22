@@ -7,7 +7,7 @@
       role="tablist"
     >
       <button
-        v-for="(item, index) in props.items"
+        v-for="item in props.items"
         :key="item.id"
         type="button"
         data-testid="tabs-tab"
@@ -17,7 +17,7 @@
         :aria-disabled="item.disabled"
         :tabindex="item.id === props.modelValue ? 0 : -1"
         @click="selectTab(item)"
-        @keydown="handleKeydown($event, index)"
+        @keydown="handleKeydown($event)"
       >
         {{ item.label }}
         <Badge v-if="item.badge !== undefined" variant="primary" size="sm">
@@ -25,7 +25,7 @@
         </Badge>
       </button>
     </div>
-    <slot name="tabs" v-else />
+    <slot v-else name="tabs" />
     <div data-testid="tabs-content" class="mt-4">
       <slot />
     </div>
@@ -126,7 +126,7 @@ function selectTab(item: TabItem) {
   }
 }
 
-function handleKeydown(event: KeyboardEvent, index: number) {
+function handleKeydown(event: KeyboardEvent) {
   if (!props.items) return;
 
   const enabledItems = props.items.filter((item) => !item.disabled);

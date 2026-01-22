@@ -1,9 +1,9 @@
 <template>
   <div class="bg-[var(--color-bg0)]" data-testid="accordion-item-root">
     <button
+      :id="`accordion-header-${props.id}`"
       type="button"
       data-testid="accordion-item-trigger"
-      :id="`accordion-header-${props.id}`"
       :class="[
         'w-full flex items-center justify-between px-4 py-3 text-left transition-colors',
         props.disabled

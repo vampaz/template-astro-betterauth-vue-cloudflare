@@ -18,8 +18,8 @@
       <input
         v-if="props.searchable && isOpen"
         ref="inputRef"
-        data-testid="select-search-input"
         v-model="searchQuery"
+        data-testid="select-search-input"
         type="text"
         class="flex-1 bg-transparent border-none outline-none text-[var(--color-fg0)] placeholder-[var(--color-fg4)]"
         :placeholder="displayValue || props.placeholder"

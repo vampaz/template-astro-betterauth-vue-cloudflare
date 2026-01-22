@@ -25,9 +25,9 @@
       />
     </span>
     <input
+      :id="props.id"
       type="radio"
       data-testid="radio-input"
-      :id="props.id"
       :name="props.name"
       :value="props.value"
       :checked="isSelected"
