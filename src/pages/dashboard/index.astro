@@ -1,0 +1,19 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const user = Astro.locals.user;
+---
+
+<Layout title="Dashboard | Template Astro Vue Cloudflare">
+  <div class="max-w-4xl mx-auto py-10 px-4">
+    <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+      <p class="text-lg mb-4">
+        Welcome back, <span class="font-semibold">{user?.name}</span>!
+      </p>
+      <p class="text-gray-600 dark:text-gray-400">
+        This is your private dashboard. Only authenticated users can see this page.
+      </p>
+    </div>
+  </div>
+</Layout>

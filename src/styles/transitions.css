@@ -1,0 +1,37 @@
+/* Simple View Transitions - Full Page Fade */
+
+/* Simple fade transition for the entire page */
+::view-transition-old(root) {
+  animation: fade-out 0.2s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.2s ease-in-out;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fallback for browsers without view transition support */
+html:not(.has-view-transitions) a {
+  transition: opacity 0.2s ease-in-out;
+}
+
+html:not(.has-view-transitions) a:hover {
+  opacity: 0.8;
+}

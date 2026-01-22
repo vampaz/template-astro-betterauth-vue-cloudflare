@@ -1,0 +1,23 @@
+name = "template-astro-vue-cloudflare"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+main = "./dist/_worker.js"
+
+[assets]
+directory = "./dist"
+
+[[d1_databases]]
+binding = "DATABASE"
+database_name = "template-db"
+database_id = "6d3a5b91-9762-4695-a28d-6890f7e4c117"
+migrations_dir = "drizzle/migrations"
+
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "r2-bucket"
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true

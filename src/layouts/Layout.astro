@@ -1,0 +1,156 @@
+---
+import '../styles/global.css';
+import '../styles/transitions.css';
+import { ClientRouter } from 'astro:transitions';
+import UserMenu from '@/components/UserMenu.vue';
+import Icon from '@/components/ui/Icon.vue';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const user = Astro.locals.user;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <style>
+      /* Dark theme (default) */
+      :root {
+        --color-bg0: #282828;
+        --color-bg1: #3c3836;
+        --color-bg2: #504945;
+        --color-bg3: #665c54;
+        --color-bg4: #7c6f64;
+        --color-fg0: #fbf1c7;
+        --color-fg1: #ebdbb2;
+        --color-fg2: #d5c4a1;
+        --color-fg3: #bdae93;
+        --color-fg4: #a89984;
+        --color-red: #cc241d;
+        --color-redBright: #fb4934;
+        --color-green: #98971a;
+        --color-greenBright: #b8bb26;
+        --color-yellow: #d79921;
+        --color-yellowBright: #fabd2f;
+        --color-blue: #458588;
+        --color-blueBright: #83a598;
+        --color-purple: #b16286;
+        --color-purpleBright: #d3869b;
+        --color-aqua: #689d6a;
+        --color-aquaBright: #8ec07c;
+        --color-orange: #d65d0e;
+        --color-orangeBright: #fe8019;
+        --color-gray: #928374;
+        --color-grayBright: #a89984;
+        --color-icon: #fbf1c7;
+        --color-icon-glow: rgba(251, 241, 199, 0.22);
+      }
+
+      /* Light theme */
+      @media (prefers-color-scheme: light) {
+        :root {
+          --color-bg0: #fbf1c7;
+          --color-bg1: #ebdbb2;
+          --color-bg2: #d5c4a1;
+          --color-bg3: #bdae93;
+          --color-bg4: #a89984;
+          --color-fg0: #282828;
+          --color-fg1: #3c3836;
+          --color-fg2: #504945;
+          --color-fg3: #665c54;
+          --color-fg4: #7c6f64;
+          --color-red: #cc241d;
+          --color-redBright: #9d0006;
+          --color-green: #98971a;
+          --color-greenBright: #79740e;
+          --color-yellow: #d79921;
+          --color-yellowBright: #b57614;
+          --color-blue: #458588;
+          --color-blueBright: #076678;
+          --color-purple: #b16286;
+          --color-purpleBright: #8f3f71;
+          --color-aqua: #689d6a;
+          --color-aquaBright: #427b58;
+          --color-orange: #d65d0e;
+          --color-orangeBright: #af3a03;
+          --color-gray: #928374;
+          --color-grayBright: #7c6f64;
+          --color-icon: #1f1f1f;
+          --color-icon-glow: rgba(0, 0, 0, 0.18);
+        }
+      }
+
+      body {
+        background-color: var(--color-bg0);
+        color: var(--color-fg0);
+      }
+
+      .header {
+        background-color: var(--color-bg1);
+        border-color: var(--color-bg2);
+      }
+
+      .header-link {
+        color: var(--color-fg0);
+      }
+
+      .header-link:hover {
+        color: var(--color-fg1);
+      }
+
+      .nav-link {
+        color: var(--color-fg4);
+      }
+
+      .nav-link:hover {
+        color: var(--color-fg0);
+      }
+    </style>
+  </head>
+  <body
+    data-testid="layout-body"
+    class="font-sans h-screen overflow-hidden flex flex-col"
+  >
+    <ClientRouter />
+    <!-- Fixed Header -->
+    <header
+      data-testid="layout-header"
+      class="header border-b h-16 flex items-center justify-between px-6 flex-shrink-0"
+    >
+      <div data-testid="layout-logo" class="flex items-center space-x-4">
+        <a
+          data-testid="layout-home-link"
+          href="/"
+          class="header-link text-xl font-bold transition-colors no-underline"
+          >Template</a
+        >
+      </div>
+
+      <nav data-testid="layout-nav" class="flex items-center space-x-3">
+        <a
+          href={user ? '/dashboard' : '/login'}
+          data-testid="layout-dashboard-link"
+          class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-[var(--color-fg4)] transition-all duration-150 hover:text-[var(--color-fg0)] hover:bg-[var(--color-bg1)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-bg2)]"
+        >
+          <Icon name="Launch" size="sm" />
+          Dashboard
+        </a>
+        <UserMenu user={user} client:load />
+      </nav>
+    </header>
+
+    <!-- Scrollable Main Area -->
+    <main data-testid="layout-main" class="flex-1 overflow-y-auto">
+      <slot />
+    </main>
+  </body>
+</html>
